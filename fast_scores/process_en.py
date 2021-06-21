@@ -3,9 +3,11 @@ from typing import List, Union
 
 # from pathlib import Path
 # import msgpack
+import nltk
 from nltk.corpus import stopwords
 from simplemma import lemmatize, load_data
 
+nltk.download("stopwords")
 stopwords_ = set(stopwords.words("english"))
 langdata = load_data("en")
 
