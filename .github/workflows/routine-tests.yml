@@ -21,7 +21,9 @@ jobs:
         with:
           poetry-version: ${{ matrix.poetry-version }}
       - name: Install packages
-        run: poetry install  # --no-dev
+        run: |
+          poetry install  # --no-dev
+          python -c "import nltk; nltk.download('stopwords')"
       - name: Run flake8
         run: |
           poetry run flake8 --exit-zero
