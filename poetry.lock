@@ -311,6 +311,14 @@ python-versions = ">=3.6"
 numpy = ">=1.14.5"
 
 [[package]]
+name = "simplemma"
+version = "0.3.0"
+description = "A simple multilingual lemmatizer for Python."
+category = "main"
+optional = false
+python-versions = ">=3.4"
+
+[[package]]
 name = "sklearn"
 version = "0.0"
 description = "A set of python modules for machine learning and data mining"
@@ -415,7 +423,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6.7"
-content-hash = "49a97b77eba401794e0a4a96fb73926ddd8e248ce8966c27a5be79156ed56696"
+content-hash = "c4c372a3b582b8bdd0ce27360f8836cee6c5568eca21c4b427f8920bc547bd9a"
 
 [metadata.files]
 atomicwrites = [
@@ -679,6 +687,10 @@ scipy = [
     {file = "scipy-1.5.4-cp39-cp39-win32.whl", hash = "sha256:d84cadd7d7998433334c99fa55bcba0d8b4aeff0edb123b2a1dfcface538e474"},
     {file = "scipy-1.5.4-cp39-cp39-win_amd64.whl", hash = "sha256:cc1f78ebc982cd0602c9a7615d878396bec94908db67d4ecddca864d049112f2"},
     {file = "scipy-1.5.4.tar.gz", hash = "sha256:4a453d5e5689de62e5d38edf40af3f17560bfd63c9c5bd228c18c1f99afa155b"},
+]
+simplemma = [
+    {file = "simplemma-0.3.0-py3-none-any.whl", hash = "sha256:fcd30d4c0919257f38181d7f3f7e4a8806b7aa7cc4434b96276cf03179d4cc98"},
+    {file = "simplemma-0.3.0.tar.gz", hash = "sha256:929c55b255d03958a6a44bbc3a3099560462be762fb0546a158a798e4edcffcb"},
 ]
 sklearn = [
     {file = "sklearn-0.0.tar.gz", hash = "sha256:e23001573aa194b834122d2b9562459bf5ae494a2d59ca6b8aa22c85a44c0e31"},
