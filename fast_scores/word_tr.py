@@ -19,10 +19,17 @@ def word_tr(word: str, strip: bool = True) -> str:
 
     Returns:
         "".join(mdx_dict.get(
-            word.strip(punctuation), {}
+            word.strip(punctuation + "\r\n\t ").lower(), {}
         ).values())
     """
-    if strip:
-        return "".join(mdx_dict.get(word.strip(punctuation), {}).values())
+    try:
+        word = str(word).lower()
+    except Exception as exc:
+        print("Something is terribly wrong: %s" % exc)
+        raise exc
 
-    return "".join(mdx_dict.get(word, {}).values())
+    if strip:
+        word = word.strip(punctuation + "\r\n\t ")
+        return "".join(mdx_dict.get(word, {'': word}).values())
+
+    return "".join(mdx_dict.get(word, {'': word}).values())
