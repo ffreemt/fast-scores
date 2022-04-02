@@ -23,6 +23,7 @@ jobs:
       - name: Install packages
         run: |
           poetry install  # --no-dev
+          poetry update
           # python -c "import nltk; nltk.download('stopwords')"
       - name: Run flake8
         run: |
