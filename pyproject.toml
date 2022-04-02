@@ -18,6 +18,9 @@ nltk = "^3.6.2"
 sklearn = "^0.0"
 simplemma = "^0.3.0"
 numpy = "^1.21.0"
+cchardet = "^2.1.7"
+fastlid = "^0.1.7"
+joblib = "^1.0.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
