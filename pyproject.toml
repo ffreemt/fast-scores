@@ -6,11 +6,11 @@ authors = ["freemt"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/ffreemt/fast-scores"
-include = ["LICENSE", "fast_scores/fast_scores.pyc", "fast_scores/process_en.pyc", "fast_scores/process_zh.pyc", "fast_scores/word_tr.pyc"]
-exclude = ["fast_scores/fast_scores.py", "fast_scores/process_en.py", "fast_scores/process_zh.py", "fast_scores/word_tr.py"]
+include = ["fast_scores/fast_scores.pyc", "LICENSE"]
+exclude = ["fast_scores/fast_scores.py", "fast_scores/process_en.py", "fast_scores/process_zh.py", "fast_scores/word_tr.py", "fast_scores/msbing_c_e.msgpk"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 # python = "^3.6.7"
 logzero = "^1.7.0"
 msgpack = "^1.0.2"
