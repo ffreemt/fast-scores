@@ -2,10 +2,11 @@
 
 https://stackoverflow.com/questions/17627219/whats-the-fastest-way-in-python-to-calculate-cosine-similarity-given-sparse-mat
 """
+from typing import Optional
 import numpy as np
 
 
-def cos_matrix2(mat1: np.ndarray, mat2: np.ndarray = None) -> np.ndarray:
+def cos_matrix2(mat1: np.ndarray, mat2: Optional[np.ndarray] = None) -> np.ndarray:
     """Compute the cosine similarity matrix of mat1, mat2: mat1 * mat2.T.
 
     Args:

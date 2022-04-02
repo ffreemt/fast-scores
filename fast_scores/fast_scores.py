@@ -15,6 +15,7 @@ def fast_scores(
         text2: List[str],
         model: TfidfVectorizer = None,
         dot: bool = True,
+        max_features: int = 1000,
 ) -> np.ndarray:
     # fmt: on
     """Calculate fast_scores.
@@ -22,6 +23,7 @@ def fast_scores(
     Args:
         text1: chinese text
         text2: chinese text
+        max_features: used when model is None
 
     Returns:
         correlation matrix (float)
@@ -30,14 +32,14 @@ def fast_scores(
 
     # create model on the fly
     if model is None:
-        logger.info("No model provided, creating one on the fly")
+        logger.debug("No model provided, creating one on the fly")
         try:
             # model = TfidfVectorizer().fit(text1 + text2)
-            model = gen_model(text1 + text2)
+            model = gen_model(text1 + text2, max_features=max_features)
         except Exception as e:
             logger.error(e)
             raise SystemExit(1) from e
-        logger.info("Done creating model")
+        logger.debug("Done creating model")
         # shake 10000x10000 ~7s-16s
 
     vec1 = model.transform(text1)  # scipy.sparse.csr.csr_matrix

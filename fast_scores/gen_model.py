@@ -15,7 +15,7 @@ def gen_model(
 
     Args:
         text: space delimited words/chinese chars/numbers
-
+            or normal Chinese text: see token_pattern below
     Returns:
         TfidfVectorizer
     """

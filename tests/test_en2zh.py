@@ -9,6 +9,11 @@ def test_en2zh1():
     (_,) = en2zh("test")
     assert len(_) == 22
 
-    assert en2zh("测") == ["survey; measure; fathom; conjecture"]
+    # assert en2zh("测") == ["survey; measure; fathom; conjecture"]
+    assert en2zh("测") == ["测"]
 
-    assert [*map(len, en2zh(["test make"] * 2))] == [239, 239]
+    # _ = en2zh([["test make"], ["test make"]])
+    # assert [*map(len, _)] == [239, 239]
+
+    _ = en2zh(["test make".split(), "test make".split()])
+    assert [*map(len, _)] == [45, 45]

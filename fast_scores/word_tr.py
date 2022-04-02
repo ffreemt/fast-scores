@@ -2,12 +2,20 @@
 # from typing import List, Union
 
 from pathlib import Path
-import msgpack
+
+# import msgpack
+import joblib
 from string import punctuation
 
+# keep "-"
+punctuation = punctuation.replace("-", "")
+
 _ = Path(__file__).parent
-_ = Path(_, "msbing_c_e.msgpk")
-mdx_dict = msgpack.load(open(_, "rb"))
+
+# _ = Path(_, "msbing_c_e.msgpk")
+# mdx_dict = msgpack.load(open(_, "rb"))
+_ = Path(_, "mdx_dict_e2c.lzma")
+mdx_dict = joblib.load(_)
 
 
 def word_tr(word: str, strip: bool = True) -> str:
@@ -26,10 +34,12 @@ def word_tr(word: str, strip: bool = True) -> str:
         word = str(word).lower()
     except Exception as exc:
         print("Something is terribly wrong: %s" % exc)
-        raise exc
+        raise
 
     if strip:
         word = word.strip(punctuation + "\r\n\t ")
-        return "".join(mdx_dict.get(word, {'': word}).values())
+        # return "".join(mdx_dict.get(word, {'': word}).values())
+        return mdx_dict.get(word, word)
 
-    return "".join(mdx_dict.get(word, {'': word}).values())
+    # return "".join(mdx_dict.get(word, {'': word}).values())
+    return mdx_dict.get(word, word)

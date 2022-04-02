@@ -8,7 +8,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolb
 
 def tk_plot(
     fig: matplotlib.figure.Figure,
-    win: Union[tk.Tk, ttk.Frame] = None,
+    win: Optional[Union[tk.Tk, ttk.Frame]] = None,
     title: str = "",
     toolbar: bool = True,
 ) -> FigureCanvasTkAgg:

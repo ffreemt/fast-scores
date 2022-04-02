@@ -19,7 +19,7 @@ def test_process_en():
     """Test process_en."""
     assert [*map(len, process_en(text_en0))] == [8, 21, 6, 4, 1, 1, 5, 2, 9, 2]
 
-    [*map(len, process_en(text_en0, remove_en_stopwords=False))] == [
+    assert [*map(len, process_en(text_en0, remove_en_stopwords=False))] == [
         9,
         33,
         8,

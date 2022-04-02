@@ -14,7 +14,7 @@ from simplemma import lemmatize, load_data
 
 try:
     stopwords_ = set(stopwords.words("english"))
-except Exception: # download when use the first time
+except Exception: # download when used the first time
     nltk.download("stopwords")
     stopwords_ = set(stopwords.words("english"))
 

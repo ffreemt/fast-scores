@@ -20,12 +20,16 @@ def gen_cmat(
     text2: List[str],
 ) -> np.ndarray:
     """Gen corr matrix for en/zh texts."""
+    # logger.debug("enter gen_cmat")
     if isinstance(text1, str):
         text1 = [text1]
     if isinstance(text2, str):
         text1 = [text2]
     lang1, conf1 = fastlid("\n".join(text1))
     lang2, conf2 = fastlid("\n".join(text2))
+
+    # ic(lang1)
+    # ic(lang2)
 
     if conf1 < 0.1:
         logger.warning(" text1 dected as %s, but confidence too low: %s, make sure you supply english or chinese texts", lang1, conf1)
@@ -39,6 +43,7 @@ def gen_cmat(
     if lang1 in ["zh"] and lang2 in ["zh"]:
         logger.warning("Both texts are zh...are you you supplied the correct files?")
 
+    logger.debug("gen text1a text2a")
     # _ = """
     if lang1 in ["en"] and lang2 in ["en"]:
         text1a = en2zh(process_en(text1))
@@ -58,6 +63,7 @@ def gen_cmat(
     # text1a = globals()["process_" + lang1](text1)
     # text2a = globals()["process_" + lang2](text2)
 
+    logger.debug("execute fast_scores")
     _ = fast_scores(text1a, text2a)
 
     return _

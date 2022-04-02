@@ -26,5 +26,5 @@ def test_word_tr3():
     assert word_tr("Test.,", strip=False)
 
     # return orginal phrase if not found in mdx_dict (msbing_c_e.msgpk)
-    assert word_tr("Test.,", strip=False) in ['test.,']
-    assert word_tr("测测试.,", strip=True) in ['测测试']
+    assert word_tr("Test.,", strip=False) in ["test.,"]
+    assert word_tr("测测试.,", strip=True) in ["测测试"]
