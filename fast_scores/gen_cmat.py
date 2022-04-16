@@ -1,9 +1,10 @@
 """Gen cmat for en/zh text."""
 # pylint: disable=
 
-from typing import List
+from typing import List, Optional
 
 import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
 from fastlid import fastlid
 from logzero import logger
 from fast_scores import fast_scores
@@ -18,6 +19,7 @@ fastlid.set_languages = ["en", "zh"]
 def gen_cmat(
     text1: List[str],
     text2: List[str],
+    model: Optional[TfidfVectorizer] = None,
 ) -> np.ndarray:
     """Gen corr matrix for en/zh texts."""
     # logger.debug("enter gen_cmat")
@@ -38,7 +40,7 @@ def gen_cmat(
         logger.warning(" text2 dected as %s, but confidence too low: %s, make sure you supply english or chinese texts", lang2, conf2)
 
     if lang1 in ["en"] and lang2 in ["en"]:
-        logger.warning("Both texts are en...are you you supplied the correct files?")
+        logger.warning("Both texts are en...are you supplied the correct files?")
 
     if lang1 in ["zh"] and lang2 in ["zh"]:
         logger.warning("Both texts are zh...are you you supplied the correct files?")
@@ -64,7 +66,7 @@ def gen_cmat(
     # text2a = globals()["process_" + lang2](text2)
 
     logger.debug("execute fast_scores")
-    _ = fast_scores(text1a, text2a)
+    _ = fast_scores(text1a, text2a, model=model)
 
     return _
 

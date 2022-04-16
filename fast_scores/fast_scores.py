@@ -1,5 +1,5 @@
 """Calculate fast_scores."""
-from typing import List
+from typing import List, Optional
 
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -13,7 +13,7 @@ from fast_scores.gen_model import gen_model
 def fast_scores(
         text1: List[str],
         text2: List[str],
-        model: TfidfVectorizer = None,
+        model: Optional[TfidfVectorizer] = None,
         dot: bool = True,
         max_features: int = 1000,
 ) -> np.ndarray:
@@ -33,17 +33,24 @@ def fast_scores(
     # create model on the fly
     if model is None:
         logger.debug("No model provided, creating one on the fly")
+
         try:
             # model = TfidfVectorizer().fit(text1 + text2)
-            model = gen_model(text1 + text2, max_features=max_features)
-        except Exception as e:
-            logger.error(e)
-            raise SystemExit(1) from e
+            # or to make pyright happy
+            model1 = gen_model(text1 + text2, max_features=max_features)
+        except Exception:
+            logger.exceptio("gen_model: ")
+            raise
+
         logger.debug("Done creating model")
         # shake 10000x10000 ~7s-16s
+    else:
+        model1 = model
 
-    vec1 = model.transform(text1)  # scipy.sparse.csr.csr_matrix
-    vec2 = model.transform(text2)
+    # model = _
+
+    vec1 = model1.transform(text1)  # scipy.sparse.csr.csr_matrix
+    vec2 = model1.transform(text2)
 
     # supposed to be much faster
     if dot:

@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "fast-scores"
-version = "0.1.3-alpha.3"
+version = "0.1.3-alpha.4"
 description = " "
 authors = ["freemt"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/ffreemt/fast-scores"
-include = ["fast_scores/fast_scores.pyc", "LICENSE"]
+include = ["fast_scores/*.pyc", "LICENSE"]
 exclude = ["fast_scores/fast_scores.py", "fast_scores/process_en.py", "fast_scores/process_zh.py", "fast_scores/word_tr.py", "fast_scores/msbing_c_e.msgpk"]
 
 [tool.poetry.dependencies]

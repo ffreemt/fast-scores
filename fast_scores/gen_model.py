@@ -34,6 +34,7 @@ def gen_model(
         ).fit(text)
     except Exception as e:
         logger.error(e)
-        raise SystemExit(1)
+        raise
+        # raise SystemExit(1) from e
 
     return model
