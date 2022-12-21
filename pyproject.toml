@@ -6,7 +6,7 @@ authors = ["freemt"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/ffreemt/fast-scores"
-include = ["fast_scores/*.pyc", "LICENSE"]
+include = ["fast_scores/*.pyc", "LICENSE", {path="fast_scores", format=["wheel", "sdist"]}]
 exclude = ["fast_scores/fast_scores.py", "fast_scores/process_en.py", "fast_scores/process_zh.py", "fast_scores/word_tr.py", "fast_scores/msbing_c_e.msgpk"]
 
 [tool.poetry.dependencies]
@@ -19,7 +19,7 @@ sklearn = "^0.0"
 simplemma = "^0.3.0"
 numpy = "^1.21.0"
 cchardet = "^2.1.7"
-fastlid = "^0.1.7"
+fastlid = "^0.1.9"
 joblib = "^1.0.1"
 
 [tool.poetry.dev-dependencies]

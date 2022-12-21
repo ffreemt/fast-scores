@@ -40,7 +40,7 @@ def gen_cmat(
         logger.warning(" text2 dected as %s, but confidence too low: %s, make sure you supply english or chinese texts", lang2, conf2)
 
     if lang1 in ["en"] and lang2 in ["en"]:
-        logger.warning("Both texts are en...are you supplied the correct files?")
+        logger.warning("Both texts are en...are you sure you supplied the correct files?")
 
     if lang1 in ["zh"] and lang2 in ["zh"]:
         logger.warning("Both texts are zh...are you you supplied the correct files?")
