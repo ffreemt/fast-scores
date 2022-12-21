@@ -21,6 +21,7 @@ numpy = "^1.21.0"
 cchardet = "^2.1.7"
 fastlid = "^0.1.9"
 joblib = "^1.0.1"
+scikit-learn = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

@@ -24,6 +24,7 @@ jobs:
         run: |
           poetry update
           poetry install  # --no-dev
+          poetry run pip install fasttext
           # python -c "import nltk; nltk.download('stopwords')"
       - name: Run flake8
         run: |
